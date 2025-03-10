@@ -137,6 +137,10 @@ table[class="cv"] td img {
     border-radius: 5px;
 }
 
+table[class="cv"] td:hover {
+    background-color:#ffffff;
+}
+
 /* Pending Courses */
 button[class="accept"] {
     background-color: #4CAF50;

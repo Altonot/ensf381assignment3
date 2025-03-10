@@ -31,7 +31,7 @@
             <!-- Display Course 1, 2, and 3 in the same line -->
             <h2>Enrolled Courses</h2>
             <hr>
-            <table class="cv">
+            <table class="cv" id="enroll">
 				<tr>
 					<td>
 						<div>
@@ -91,22 +91,22 @@
             <hr>
             <table class="cv">
 				<tr>
-					<td>
+					<td id="pending1">
                         <div>
                             <img src="course2.jpg" alt="Course 2">
                             <p>Course Name: Data Science</p>
                             <p>Course Code: DS102</p>
-                            <button class="accept">Accept</button>
-                            <button class="decline">Decline</button>
+                            <button class="accept" id="accept1">Accept</button>
+                            <button class="decline" id="decline1">Decline</button>
                         </div>
                     </td> 
-                    <td>
+                    <td id="pending2">
                         <div>
                             <img src="course2.jpg" alt="Course 2">
                             <p>Course Name: Machine Learning</p>
                             <p>Course Code: ML105</p>
-                            <button class="accept">Accept</button>
-                            <button class="decline">Decline</button>
+                            <button class="accept" id="accept2">Accept</button>
+                            <button class="decline" id="decline2">Decline</button>
                         </div>
                     </td> 
                 </tr>
@@ -116,5 +116,179 @@
     <footer>
         <p>&copy; 2025 LMS. All rights reserved.</p>
     </footer>
+    <script type="text/javascript">
+        const accept1 = document.getElementById("accept1");
+        const decline1 = document.getElementById("decline1");
+        const accept2 = document.getElementById("accept2");
+        const decline2 = document.getElementById("decline2");
+    
+        const pending1 = document.getElementById("pending1");
+        const pending2 = document.getElementById("pending2");
+
+        const enrollTable = document.getElementById("enroll");
+    
+        accept1.addEventListener('click' , function() {
+            let paragraphs = accept1.parentNode.getElementsByTagName("p");
+            let name = paragraphs[0].innerHTML;
+            let code = paragraphs[1].innerHTML;
+            let addedCell = -1;
+
+            for(let i = 0; i < enrollTable.rows.length; i++){
+                if(enrollTable.rows[i].cells.length == 3){
+                    continue;
+                }
+                let index = enrollTable.rows[i].cells.length - 1;
+                enrollTable.rows[i].insertCell(index);
+
+                let div = document.createElement("div");
+                let image = document.createElement("img");
+                image.src = "course1.jpg";
+                let nameParagraph = document.createElement("p");
+                nameParagraph.innerHTML = name;
+                let codeParagraph = document.createElement("p");
+                codeParagraph.innerHTML = code;
+                let link = document.createElement("a");
+                link.innerHTML = "Attempt Quiz";
+                link.href = "attempt_quiz.html";
+
+                div.appendChild(image);
+                div.appendChild(nameParagraph);
+                div.appendChild(codeParagraph);
+                div.appendChild(link);
+
+                enrollTable.rows[i].cells[index].appendChild(div);
+
+                addedCell = 0;
+            }
+
+            if(addedCell == -1) { //Create new row
+                let index = enrollTable.rows.length;
+                enrollTable.insertRow(index);
+
+                enrollTable.rows[index].insertCell(0);
+
+                let div = document.createElement("div");
+                let image = document.createElement("img");
+                image.src = "course1.jpg";
+                let nameParagraph = document.createElement("p");
+                nameParagraph.innerHTML = name;
+                let codeParagraph = document.createElement("p");
+                codeParagraph.innerHTML = code;
+                let link = document.createElement("a");
+                link.innerHTML = "Attempt Quiz";
+                link.href = "attempt_quiz.html";
+
+                div.appendChild(image);
+                div.appendChild(nameParagraph);
+                div.appendChild(codeParagraph);
+                div.appendChild(link);
+
+                enrollTable.rows[index].cells[0].appendChild(div);
+            }
+
+            let row = pending1.parentNode;
+            let cellIndex = -1;
+            for (let i = 0; i < row.cells.length; i++) {
+                if (row.cells[i] == pending1) {
+                    cellIndex = i;
+                    break;
+                }
+            }
+            row.deleteCell(cellIndex);
+        });
+        decline1.addEventListener('click' , function() {
+            let row = pending1.parentNode;
+            let cellIndex = -1;
+            for (let i = 0; i < row.cells.length; i++) {
+                if (row.cells[i] == pending1) {
+                    cellIndex = i;
+                    break;
+                }
+            }
+            row.deleteCell(cellIndex);
+        });
+    
+        accept2.addEventListener('click' , function() {
+            let paragraphs = accept2.parentNode.getElementsByTagName("p");
+            let name = paragraphs[0].innerHTML;
+            let code = paragraphs[1].innerHTML;
+            let addedCell = -1;
+
+            for(let i = 0; i < enrollTable.rows.length; i++){
+                if(enrollTable.rows[i].cells.length == 3){
+                    continue;
+                }
+                let index = enrollTable.rows[i].cells.length - 1;
+                enrollTable.rows[i].insertCell(index);
+
+                let div = document.createElement("div");
+                let image = document.createElement("img");
+                image.src = "course1.jpg";
+                let nameParagraph = document.createElement("p");
+                nameParagraph.innerHTML = name;
+                let codeParagraph = document.createElement("p");
+                codeParagraph.innerHTML = code;
+                let link = document.createElement("a");
+                link.innerHTML = "Attempt Quiz";
+                link.href = "attempt_quiz.html";
+
+                div.appendChild(image);
+                div.appendChild(nameParagraph);
+                div.appendChild(codeParagraph);
+                div.appendChild(link);
+
+                enrollTable.rows[i].cells[index].appendChild(div);
+
+                addedCell = 0;
+            }
+
+            if(addedCell == -1) { //Create new row
+                let index = enrollTable.rows.length;
+                enrollTable.insertRow(index);
+
+                enrollTable.rows[index].insertCell(0);
+
+                let div = document.createElement("div");
+                let image = document.createElement("img");
+                image.src = "course1.jpg";
+                let nameParagraph = document.createElement("p");
+                nameParagraph.innerHTML = name;
+                let codeParagraph = document.createElement("p");
+                codeParagraph.innerHTML = code;
+                let link = document.createElement("a");
+                link.innerHTML = "Attempt Quiz";
+                link.href = "attempt_quiz.html";
+
+                div.appendChild(image);
+                div.appendChild(nameParagraph);
+                div.appendChild(codeParagraph);
+                div.appendChild(link);
+
+                enrollTable.rows[index].cells[0].appendChild(div);
+            }
+
+
+            let row = pending2.parentNode;
+            let cellIndex = -1;
+            for (let i = 0; i < row.cells.length; i++) {
+                if (row.cells[i] == pending2) {
+                    cellIndex = i;
+                    break;
+                }
+            }
+            row.deleteCell(cellIndex);
+        });
+        decline2.addEventListener('click' , function() {
+            let row = pending2.parentNode;
+            let cellIndex = -1;
+            for (let i = 0; i < row.cells.length; i++) {
+                if (row.cells[i] == pending2) {
+                    cellIndex = i;
+                    break;
+                }
+            }
+            row.deleteCell(cellIndex);
+        });
+    </script>
 </body>
 </html>
