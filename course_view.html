@@ -137,7 +137,7 @@
                 if(enrollTable.rows[i].cells.length == 3){
                     continue;
                 }
-                let index = enrollTable.rows[i].cells.length - 1;
+                let index = enrollTable.rows[i].cells.length;
                 enrollTable.rows[i].insertCell(index);
 
                 let div = document.createElement("div");
@@ -196,6 +196,7 @@
             }
             row.deleteCell(cellIndex);
         });
+
         decline1.addEventListener('click' , function() {
             let row = pending1.parentNode;
             let cellIndex = -1;
@@ -218,7 +219,7 @@
                 if(enrollTable.rows[i].cells.length == 3){
                     continue;
                 }
-                let index = enrollTable.rows[i].cells.length - 1;
+                let index = enrollTable.rows[i].cells.length;
                 enrollTable.rows[i].insertCell(index);
 
                 let div = document.createElement("div");
@@ -278,6 +279,7 @@
             }
             row.deleteCell(cellIndex);
         });
+
         decline2.addEventListener('click' , function() {
             let row = pending2.parentNode;
             let cellIndex = -1;
