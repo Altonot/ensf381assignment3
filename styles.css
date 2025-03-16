@@ -262,3 +262,73 @@ footer {
     padding: 10px;
     margin-top: 20px;
 }
+
+/* Signup Page - Match Existing Styles */
+main[class="signup"] {
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+/* Apply the same styling as the login form */
+main.signup form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d4d4d4; /* Same as login */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    padding: 30px;
+    margin: 0px 150px 0px 150px;
+    max-width: 100%;
+}
+
+/* Match input fields from login */
+main.signup input[type="text"], main.signup input[type="password"], main.signup input[type="email"] {
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 3px solid #b2b2b2;
+    background-color: lightyellow;
+}
+
+/* Match buttons */
+main.signup button {
+    background-color: #008000; /* Green button - Same as login */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+main.signup button:hover {
+    background-color: #006600; /* Darker green hover effect */
+}
+
+/* Error Message Box */
+#message-box {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    text-align: left;
+    background-color: #ffcccc; /* Light red */
+    color: #900;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Link to login */
+main.signup a {
+    color: #004080;
+    text-decoration: none;
+}
+
+main.signup a:hover {
+    text-decoration: underline;
+}
